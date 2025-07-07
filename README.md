@@ -1,6 +1,24 @@
 This is a minimal transformer-based language model built from scratch — a small-scale prototype of an LLM architecture.
-It is a lightweight implementation of a transformer based GPT-style character-level language model.
+It is a lightweight implementation of a transformer based language model, focusing on mathematics and Electrical Engineering content.
+It demonstrates the core architecture behind large language models — optimized for domain-specific learning in STEM fields.
 This was built by scratch on my Apple M3 Macbook Air, as a 'self-challenge' and what I beleive to be a great learning experience.
+
+Originally based on a character-level GPT-style model, Mezzirak has been repurposed to learn from curated maths and EE resources including:
+
+- University textbooks (PDFs converted to plain text)
+- Electrical Engineering formulas, definitions, and problems
+- Math Q&A (integration, ODEs, Fourier, linear algebra, etc.)
+- Circuit theory, signals and systems, electromagnetics
+- Engineering problem-solving techniques
+
+📦 Dataset
+Instead of Shakespeare, Mezzirak is trained on a custom dataset:
+data/eemath.txt — a large corpus of domain-specific material, extracted from:
+
+Electrical and Computer Engineering textbooks
+Math lecture notes and problem banks
+Community-contributed technical content
+The training is entirely local and open-source, showcasing that you don’t need massive compute to build a focused LLM prototype.
 
 ## 🔍 Goals
 
