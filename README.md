@@ -1,24 +1,17 @@
 This is a minimal transformer-based language model built from scratch — a small-scale prototype of an LLM architecture.
 It is a lightweight implementation of a transformer based language model, focusing on mathematics and Electrical Engineering content.
 It demonstrates the core architecture behind large language models — optimized for domain-specific learning in STEM fields.
-This was built by scratch on my Apple M3 Macbook Air, as a 'self-challenge' and what I beleive to be a great learning experience.
+This was built by scratch on my universities desktop and cloud GPU services such as Google Colab and Microsoft Azure as a 'self-challenge' and what I beleive to be a great learning experience.
 
-Originally based on a character-level GPT-style model, Mezzirak has been repurposed to learn from curated maths and EE resources including:
+Mezzirak has been trained to learn from curated maths and EE resources including:
 
-- University textbooks (PDFs converted to plain text)
-- Electrical Engineering formulas, definitions, and problems
-- Math Q&A (integration, ODEs, Fourier, linear algebra, etc.)
-- Circuit theory, signals and systems, electromagnetics
-- Engineering problem-solving techniques
+- Hugging face
+- Github repositories
+- arXiv papers
 
 📦 Dataset
-Instead of Shakespeare, Mezzirak is trained on a custom dataset:
+Mezzirak is trained on several  dataset:
 data/eemath.txt — a large corpus of domain-specific material, extracted from:
-
-Electrical and Computer Engineering textbooks
-Math lecture notes and problem banks
-Community-contributed technical content
-The training is entirely local and open-source, showcasing that you don’t need massive compute to build a focused LLM prototype.
 
 ## 🔍 Goals
 
@@ -33,46 +26,22 @@ The training is entirely local and open-source, showcasing that you don’t need
 - Implemented in **Python** using **PyTorch**
 - Character-level transformer model
 - Custom attention block and training loop
-- Trained on Shakespeare's text corpus (~1MB)
 - Cleaned Git history and environment for reproducibility
 - Training logs + sample generations
 
-## 📁 Project Structure
+## 📂 Project Structure
 
-Mezzirak-LLM/
-├── data/ # Dataset (tiny Shakespeare)
-├── mezzirak.py # Main training script
-├── requirements.txt # Python dependencies
-├── .gitignore # Files to ignore
-└── README.md # This file
+| File / Folder           | Description |
+|-------------------------|-------------|
+| `m.py`                  | Loads OpenMathInstruct-1 and saves raw `.txt` |
+| `clean_dataset.py`      | Removes metadata, deduplicates lines |
+| `train_tokenizer.py`    | Trains a BPE tokenizer using HuggingFace `tokenizers` |
+| `encode_to_bin.py`      | Converts cleaned `.txt` into `train.bin` (tokenized) |
+| `train_mezzirak.py`     | *(coming soon)* Model training script using `transformers` + PyTorch |
+| `tokenizer_model/`      | Stores vocab + merge rules |
+| `data/`                 | Raw/cleaned training data and binary file |
+| `checkpoints/`          | Will contain model checkpoints during training |
 
-## 🧪 How to Run
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/Mezzirak/LLM.git
-cd LLM
-```
-2. Create and activate a virtual environment:
-
-   python3 -m venv venv
-   source venv/bin/activate
-
-3. Install dependencies:
-
-   pip install -r requirements.txt
-
-4. Train the model:
-
-   python3 mezzirak.py
-
-🌐 What's Next
-
- - Web interface with Flask or Streamlit to interact with Mezzirak in real time
- - Train on larger corpora (e.g., Wikipedia dumps or GitHub code)
- - Extend to token-level transformer
- - Try quantization/distillation for smaller deployment
 
 📚 Learning References
 
