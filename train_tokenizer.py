@@ -3,11 +3,11 @@ from tokenizers import ByteLevelBPETokenizer
 # Initialize a tokenizer
 tokenizer = ByteLevelBPETokenizer()
 
-# Train the tokenizer on your text file(s)
+#training tokenizer on datafile
 tokenizer.train(
-    files=["openmathinstruct_train.txt"],  # list of your training files
-    vocab_size=30_000,                    # you can tweak vocab size (30k is a good start)
-    min_frequency=2,                      # ignore rare tokens appearing less than this
+    files=["openmathinstruct_train.txt"],  
+    vocab_size=30_000,                   
+    min_frequency=2,                     
     special_tokens=[
         "<s>",
         "<pad>",
